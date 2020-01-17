@@ -2,10 +2,20 @@ import React from 'react';
 import {Text,View,StyleSheet, TextInput} from 'react-native';
 import {Feather} from '@expo/vector-icons'
 
-const SearchScreen = () => {
+const SearchBar = ({term, onTermChange,onTermSubmit}) => {
+    //term: search term state value, onTermChange: callback for communicating text change
+
     return <View style={localStyles.backgroundStyle}>
         <Feather name="search" style={localStyles.iconStyle}/>
-        <TextInput placeholder="Search" style={localStyles.textInputStyle}></TextInput>
+        <TextInput
+            autoCapitalize="none"
+            autoCorrect={false}
+            style={localStyles.textInputStyle} 
+            placeholder="Search" 
+            value={term}
+            onChangeText={newTerm => onTermChange(newTerm)} // call function directly
+            onEndEditing={onTermSubmit}  // call function reference
+        />
     </View>
 }
 
@@ -28,4 +38,4 @@ const localStyles = StyleSheet.create({
     }
 })
 
-export default SearchScreen
+export default SearchBar
