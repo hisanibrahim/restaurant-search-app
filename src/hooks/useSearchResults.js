@@ -7,7 +7,6 @@ export default () => {
 
   const searchApi = async searchTerm => {
     try {
-      console.log("Hi there!");
       setErrorMessage("");
       const response = await zomato.get("/search", {
         params: {
@@ -18,10 +17,11 @@ export default () => {
     } catch (err) {
       setErrorMessage("Something went wrong! Please try again.");
     }
+    // console.log(results.name);
   };
 
   useEffect(() => {
-    searchApi("s");
+    searchApi("");
   }, []);
 
   // adding a empty array '[]' as second parameter run
