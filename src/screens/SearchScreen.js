@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, ScrollView } from "react-native";
 import SearchBar from "../components/SearchBar";
 import useSearchResults from "../hooks/useSearchResults";
 import SearchList from "../components/SearchList";
+// import { ScrollView } from "react-native-gesture-handler";
 
 const SearchScreen = () => {
   const [term, setTerm] = useState("");
@@ -15,7 +16,7 @@ const SearchScreen = () => {
     });
   };
   return (
-    <View>
+    <ScrollView style={localStyles.container}>
       <SearchBar
         term={term}
         onTermChange={newTerm => setTerm(newTerm)}
@@ -24,10 +25,17 @@ const SearchScreen = () => {
       {errorMessage ? <Text>{errorMessage}</Text> : null}
       <Text>We have found {results.length} results.</Text>
       <SearchList title="Cheap" results={filterResultsByPrice(1)} />
-      <SearchList title="Avergae" results={filterResultsByPrice(2)} />
+      <SearchList title="Average" results={filterResultsByPrice(2)} />
       <SearchList title="Expensive" results={filterResultsByPrice(3)} />
-    </View>
+    </ScrollView>
   );
 };
+
+const localStyles = StyleSheet.create({
+  container: {
+    marginVertical: 10,
+    marginHorizontal: 10
+  }
+});
 
 export default SearchScreen;
