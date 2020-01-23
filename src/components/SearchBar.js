@@ -6,7 +6,7 @@ const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
   //term: search term state value, onTermChange: callback for communicating text change
 
   return (
-    <View style={localStyles.backgroundStyle}>
+    <View style={localStyles.container}>
       <Feather name="search" style={localStyles.iconStyle} />
       <TextInput
         autoCapitalize="none"
@@ -22,7 +22,8 @@ const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
 };
 
 const localStyles = StyleSheet.create({
-  backgroundStyle: {
+  container: {
+    margin: 12,
     height: 45,
     backgroundColor: "#F0EEEE",
     flexDirection: "row"

@@ -1,27 +1,24 @@
 import React from "react";
 import { Text, View, StyleSheet, FlatList, Image } from "react-native";
+import ResultBox from "../components/ResultBox";
 
 const SearchList = ({ title, results }) => {
   return (
     <View>
       <Text style={localStyles.titleStyle}>{title}</Text>
-      <Text>Found {results.length} results.</Text>
       <FlatList
         horizontal
+        showsHorizontalScrollIndicator={false}
         data={results}
         renderItem={({ item }) => {
-          return (
-            <View style={localStyles.boxStyle}>
-              <Image
-                style={{ height: 120, width: 180 }}
-                source={{ uri: item.restaurant.thumb }}
-              />
-              <Text>{item.restaurant.name}</Text>
-              <Text>{item.restaurant.user_rating.aggregate_rating} Rating</Text>
-            </View>
+          return item.restaurant.thumb === "" ? null : (
+            <ResultBox result={item} />
           );
         }}
         keyExtractor={item => item.restaurant.id}
+        ListEmptyComponent={() => {
+          return <Text style={{ marginLeft: 12 }}>0 results found.</Text>;
+        }}
       />
     </View>
   );
@@ -29,12 +26,11 @@ const SearchList = ({ title, results }) => {
 
 const localStyles = StyleSheet.create({
   titleStyle: {
-    marginVertical: 10,
+    marginHorizontal: 12,
+    marginVertical: 8,
     fontSize: 18,
-    fontWeight: "bold"
-  },
-  boxStyle: {
-    flexDirection: "column"
+    fontWeight: "bold",
+    marginBottom: 5
   }
 });
 

@@ -16,18 +16,22 @@ const SearchScreen = () => {
     });
   };
   return (
-    <ScrollView style={localStyles.container}>
+    <>
       <SearchBar
         term={term}
         onTermChange={newTerm => setTerm(newTerm)}
         onTermSubmit={() => searchApi(term)}
       />
-      {errorMessage ? <Text>{errorMessage}</Text> : null}
-      <Text>We have found {results.length} results.</Text>
-      <SearchList title="Cheap" results={filterResultsByPrice(1)} />
-      <SearchList title="Average" results={filterResultsByPrice(2)} />
-      <SearchList title="Expensive" results={filterResultsByPrice(3)} />
-    </ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={localStyles.text}>
+          {errorMessage ? <Text>{errorMessage}</Text> : null}
+          <Text>We have found {results.length} results.</Text>
+        </View>
+        <SearchList title="Cheap" results={filterResultsByPrice(1)} />
+        <SearchList title="Average" results={filterResultsByPrice(2)} />
+        <SearchList title="Expensive" results={filterResultsByPrice(3)} />
+      </ScrollView>
+    </>
   );
 };
 
@@ -35,6 +39,9 @@ const localStyles = StyleSheet.create({
   container: {
     marginVertical: 10,
     marginHorizontal: 10
+  },
+  text: {
+    marginHorizontal: 12
   }
 });
 
