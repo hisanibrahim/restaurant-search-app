@@ -25,11 +25,23 @@ const SearchScreen = () => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={localStyles.text}>
           {errorMessage ? <Text>{errorMessage}</Text> : null}
-          <Text>We have found {results.length} results.</Text>
+          {/* <Text>We have found {results.length} results.</Text> */}
         </View>
-        <SearchList title="Cheap" results={filterResultsByPrice(1)} />
-        <SearchList title="Average" results={filterResultsByPrice(2)} />
-        <SearchList title="Expensive" results={filterResultsByPrice(3)} />
+        <SearchList
+          title="Cost Effective"
+          results={filterResultsByPrice(1)}
+          // navigation={navigation}
+        />
+        <SearchList
+          title="Bit Pricier"
+          results={filterResultsByPrice(2)}
+          // navigation={navigation}
+        />
+        <SearchList
+          title="Big Spender"
+          results={filterResultsByPrice(3)}
+          // navigation={navigation}
+        />
       </ScrollView>
     </>
   );
