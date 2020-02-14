@@ -1,7 +1,9 @@
 {
   "expo": {
-    "name": "Restuarent Search",
-    "slug": "food",
+    "name": "Searching Food",
+    "description": "Search restuarents in the city",
+    "slug": "food-search",
+    "owner": "hisan",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [

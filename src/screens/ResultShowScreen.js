@@ -6,7 +6,7 @@ import zomato from "../api/zomato";
 const ResultShowScreen = ({ navigation }) => {
   const [result, setResult] = useState();
   const id = navigation.getParam("id");
-  console.log(id);
+  // console.log(id);
 
   const getResult = async id => {
     const response = await zomato.get(`/restaurant?res_id=${id}`);
@@ -21,7 +21,7 @@ const ResultShowScreen = ({ navigation }) => {
     getResult(id);
   }, []);
 
-  console.log(JSON.stringify(result));
+  // console.log(JSON.stringify(result));
 
   return (
     <View style={localStyles.container}>
