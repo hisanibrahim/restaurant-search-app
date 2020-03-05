@@ -6,12 +6,13 @@
     "owner": "hisan",
     "privacy": "public",
     "sdkVersion": "36.0.0",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
-    "version": "1.0.0",
+    "platforms": ["ios", "android", "web"],
+    "android": {
+      "package": "com.hisan.foodsearch",
+      "versionCode": 2,
+      "permissions": []
+    },
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -22,9 +23,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     }
