@@ -9,15 +9,15 @@
     "platforms": ["ios", "android", "web"],
     "android": {
       "package": "com.hisan.foodsearch",
-      "versionCode": 2,
+      "versionCode": 3,
       "permissions": []
     },
     "ios": {
       "bundleIdentifier": "com.hisan.foodsearch",
-      "buildNumber": "1.0.1",
+      "buildNumber": "1.0.2",
       "supportsTablet": true
     },
-    "version": "1.0.1",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
